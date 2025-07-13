@@ -7,8 +7,9 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME_BACKEND: ${{ github.repository }}-backend
-  IMAGE_NAME_FRONTEND: ${{ github.repository }}-frontend
+  # Cambiar estos nombres para evitar caracteres inválidos
+  IMAGE_NAME_BACKEND: postgress-docker-compose-backend
+  IMAGE_NAME_FRONTEND: postgress-docker-compose-frontend
 
 jobs:
   test:
@@ -37,12 +38,6 @@ jobs:
       run: |
         cd frontend
         npm ci
-    
-    # Aquí puedes agregar tests cuando los tengas
-    # - name: Run backend tests
-    #   run: |
-    #     cd backend
-    #     npm test
 
   build-and-push:
     needs: test
@@ -67,7 +62,7 @@ jobs:
       id: meta-backend
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BACKEND }}
+        images: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME_BACKEND }}
         tags: |
           type=ref,event=branch
           type=sha,prefix={{branch}}-
@@ -77,7 +72,7 @@ jobs:
       id: meta-frontend
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_FRONTEND }}
+        images: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME_FRONTEND }}
         tags: |
           type=ref,event=branch
           type=sha,prefix={{branch}}-
@@ -116,7 +111,7 @@ jobs:
         script: |
           cd /path/to/your/project
           git pull origin main
-          docker-compose down
-          docker-compose pull
-          docker-compose up -d
+          docker-compose -f docker-compose.prod.yml down
+          docker-compose -f docker-compose.prod.yml pull
+          docker-compose -f docker-compose.prod.yml up -d
           docker system prune -f

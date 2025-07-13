@@ -18,7 +18,7 @@ services:
       - app-network
 
   backend:
-    image: ghcr.io/${GITHUB_REPOSITORY:martinch92/-postgress-docker-compose}-backend:latest
+    image: ghcr.io/martinch92/postgress-docker-compose-backend:latest
     container_name: nodejs_backend
     restart: always
     ports:
@@ -37,7 +37,7 @@ services:
       - app-network
 
   frontend:
-    image: ghcr.io/${GITHUB_REPOSITORY=martinch92/-postgress-docker-compose}-frontend:latest
+    image: ghcr.io/martinch92/postgress-docker-compose-frontend:latest
     container_name: react_frontend
     restart: always
     ports:

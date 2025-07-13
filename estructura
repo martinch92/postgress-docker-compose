@@ -1,0 +1,31 @@
+.
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── database.js
+│   │   ├── controllers/
+│   │   │   ├── userController.js
+│   │   │   └── postController.js
+│   │   ├── models/
+│   │   │   ├── User.js
+│   │   │   └── Post.js
+│   │   ├── routes/
+│   │   │   ├── users.js
+│   │   │   └── posts.js
+│   │   └── app.js
+│   ├── package.json
+│   └── Dockerfile
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── Dockerfile
+├── docker-compose.yml
+├── init.sql
+├── .env
+└── README.md

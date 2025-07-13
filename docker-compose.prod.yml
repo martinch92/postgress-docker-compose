@@ -39,6 +39,7 @@ services:
   frontend:
     image: ghcr.io/martinch92/postgress-docker-compose-frontend:latest
     container_name: react_frontend
+    platform: linux/amd64
     restart: always
     ports:
       - "3000:80"

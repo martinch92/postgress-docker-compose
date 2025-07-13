@@ -109,7 +109,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          cd /path/to/your/project
+          cd /root/postgress-docker-compose
           git pull origin main
           docker-compose -f docker-compose.prod.yml down
           docker-compose -f docker-compose.prod.yml pull

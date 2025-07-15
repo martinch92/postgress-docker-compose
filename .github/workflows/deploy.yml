@@ -108,8 +108,8 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        script: |
-          cd /root/postgress-docker-compose
+        script: | #antes se debe clonar
+          cd /home/postgress-docker-compose
           git pull origin main
           docker-compose -f docker-compose.prod.yml down
           docker-compose -f docker-compose.prod.yml pull

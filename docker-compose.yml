@@ -42,7 +42,10 @@ services:
 
   # Frontend React
   frontend:
-    build: ./frontend
+    build: 
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: "http://161.35.59.121:3001"
     container_name: react_frontend
     restart: always
     ports:

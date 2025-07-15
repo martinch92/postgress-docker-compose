@@ -93,6 +93,8 @@ jobs:
         push: true
         tags: ${{ steps.meta-frontend.outputs.tags }}
         labels: ${{ steps.meta-frontend.outputs.labels }}
+        build-args: |
+          REACT_APP_API_URL=http://161.35.59.121:3001
 
   deploy:
     needs: build-and-push

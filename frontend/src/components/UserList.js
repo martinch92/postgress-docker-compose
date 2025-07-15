@@ -111,7 +111,7 @@ const UserList = () => {
 
       {/* Lista de usuarios */}
       <div className="users-grid">
-        {users.map((user) => (
+        {users?.map((user) => (
           <div key={user.id} className="user-card">
             <h4>{user.name}</h4>
             <p>{user.email}</p>

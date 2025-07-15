@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🚀 Full StackApp</h1>
+        <h1>🚀 Full Stack App</h1>
         <p>React + Node.js + PostgreSQL + Docker</p>
         
         <nav className="nav-tabs">
@@ -34,7 +34,7 @@ function App() {
       </main>
 
       <footer className="App-footer">
-        <p>Desarrollado con ❤️ usando Docker Compose</p>
+        <p>Desarrollado con ❤️ por Martín usando Docker Compose</p>
       </footer>
     </div>
   );
